@@ -102,10 +102,10 @@
     </div>
   </header>
 
-  <!-- MAIN WRAPPER -->
+  <!-- MAIN CONTAINER -->
   <main class="flex-1 max-w-4xl w-full mx-auto px-4 sm:px-6 py-8 sm:py-12 flex flex-col justify-center">
 
-    <!-- HERO SECTION (State 1: Initial) -->
+    <!-- HERO SECTION -->
     <section id="hero-section" class="relative overflow-hidden py-10 sm:py-16 text-center">
       <div class="absolute -top-10 left-10 text-nova-gold/10 font-serif text-8xl select-none pointer-events-none">♠</div>
       <div class="absolute top-20 right-10 text-nova-gold/10 font-serif text-9xl select-none pointer-events-none">♦</div>
@@ -126,7 +126,7 @@
         </h1>
 
         <p class="text-base sm:text-lg text-purple-200/80 mb-10 leading-relaxed font-light">
-          Help us shape the future of Prize Nova. Tell us how you prefer to stay connected, what you love to play, and what you'd like to see next.
+          Help us shape the future of Prize Nova. Tell us how you prefer to stay connected, what you love to play, and ensure your account remains verified.
         </p>
 
         <button
@@ -139,7 +139,7 @@
       </div>
     </section>
 
-    <!-- SURVEY FORM CARD (State 2: Active Form) -->
+    <!-- SURVEY FORM CARD -->
     <section id="survey-card" class="hidden bg-nova-cardBg backdrop-blur-xl border border-nova-cardBorder rounded-3xl p-6 sm:p-10 shadow-luxury relative">
       
       <!-- Progress Bar & Indicator -->
@@ -155,19 +155,35 @@
         </div>
       </div>
 
-      <!-- Validation Error Toast Banner -->
+      <!-- Validation Error Banner -->
       <div id="validation-error" class="hidden mb-6 p-3.5 bg-red-950/80 border border-red-500/50 rounded-xl text-red-200 text-xs font-semibold flex items-center gap-2">
         <i data-lucide="alert-circle" class="w-4 h-4 text-red-400"></i>
         <span id="error-message"></span>
       </div>
 
-      <!-- STEP 1: ABOUT YOU -->
-      <div id="step-1" class="survey-step space-y-8">
+      <!-- STEP 1: ABOUT YOU (Includes Mandatory Name) -->
+      <div id="step-1" class="survey-step space-y-7">
         <div>
           <label class="block text-base sm:text-lg font-semibold text-white mb-1">
-            1. How long have you been playing with Prize Nova? <span class="text-nova-gold">*</span>
+            Player Full Name <span class="text-nova-gold">* Required</span>
           </label>
-          <p class="text-xs text-purple-200/60 mb-4">Select your player tenure</p>
+          <p class="text-xs text-purple-200/60 mb-3">Please enter your real full name for verification and rewards matching</p>
+          <div class="relative">
+            <input
+              type="text"
+              id="playerName"
+              placeholder="e.g. Johnathan Carter"
+              class="w-full bg-black/40 border border-white/15 rounded-xl px-4 py-3.5 text-white placeholder-purple-300/30 focus:outline-none focus:border-nova-gold text-sm"
+              required
+            />
+          </div>
+        </div>
+
+        <div>
+          <label class="block text-base sm:text-lg font-semibold text-white mb-1">
+            How long have you been playing with Prize Nova? <span class="text-nova-gold">*</span>
+          </label>
+          <p class="text-xs text-purple-200/60 mb-3">Select your player tenure</p>
           <div class="grid grid-cols-1 sm:grid-cols-2 gap-3" data-group="duration">
             <div class="option-card single p-4 rounded-xl border border-white/10 bg-black/20 hover:border-nova-gold/40 flex items-center justify-between cursor-pointer transition-all" data-val="Less than 1 month">
               <span class="text-sm font-medium">Less than 1 month</span>
@@ -190,9 +206,9 @@
 
         <div>
           <label class="block text-base sm:text-lg font-semibold text-white mb-1">
-            2. How often do you usually play on Prize Nova? <span class="text-nova-gold">*</span>
+            How often do you usually play on Prize Nova? <span class="text-nova-gold">*</span>
           </label>
-          <p class="text-xs text-purple-200/60 mb-4">Select your activity rhythm</p>
+          <p class="text-xs text-purple-200/60 mb-3">Select your regular playing schedule</p>
           <div class="grid grid-cols-1 sm:grid-cols-2 gap-3" data-group="frequency">
             <div class="option-card single p-4 rounded-xl border border-white/10 bg-black/20 hover:border-nova-gold/40 flex items-center justify-between cursor-pointer transition-all" data-val="Daily">
               <span class="text-sm font-medium">Daily</span>
@@ -253,7 +269,7 @@
           <label class="block text-base sm:text-lg font-semibold text-white mb-1">
             Which platform would you prefer to use for playing Prize Nova if Facebook is no longer available? <span class="text-nova-gold">*</span>
           </label>
-          <p class="text-xs text-purple-200/60 mb-4">Choose your ideal gaming environment</p>
+          <p class="text-xs text-purple-200/60 mb-4">Choose your preferred gameplay interface</p>
           <div class="grid grid-cols-1 sm:grid-cols-2 gap-3" data-group="playPlatform">
             <div class="option-card single p-4 rounded-xl border border-white/10 bg-black/20 hover:border-nova-gold/40 flex items-center justify-between cursor-pointer" data-val="Prize Nova Website">
               <span class="text-sm font-medium">Direct Website Portal</span>
@@ -279,10 +295,10 @@
         </div>
       </div>
 
-      <!-- STEP 3: CONTACT PREFERENCES -->
-      <div id="step-3" class="survey-step hidden space-y-7">
+      <!-- STEP 3: CONTACT PREFERENCES (ALL FIELDS MANDATORY) -->
+      <div id="step-3" class="survey-step hidden space-y-6">
         
-        <!-- MANDATORY BACKUP FIELD -->
+        <!-- PRIMARY BACKUP CONTACT -->
         <div class="p-5 rounded-2xl bg-nova-deep/90 border border-nova-gold/40 shadow-glow-gold/20">
           <div class="flex items-start gap-3 mb-4">
             <div class="p-2 rounded-lg bg-nova-gold/10 text-nova-gold">
@@ -290,10 +306,10 @@
             </div>
             <div>
               <h3 class="text-sm sm:text-base font-bold text-white flex items-center gap-2">
-                Mandatory Backup Contact <span class="text-nova-gold text-xs">* Required</span>
+                Priority Backup Contact <span class="text-nova-gold text-xs">* Required</span>
               </h3>
               <p class="text-xs text-purple-200/70 mt-0.5">
-                Protect your game progress & VIP balance. Provide at least one direct backup contact line.
+                Select your primary emergency line to preserve account balance & transactions.
               </p>
             </div>
           </div>
@@ -313,58 +329,65 @@
           />
         </div>
 
-        <!-- OPTIONAL DETAILS -->
-        <div>
-          <label class="block text-base font-semibold text-white mb-1">
-            Which contact method would you be comfortable sharing for updates?
-          </label>
-          <p class="text-xs text-purple-200/60 mb-4">Select all you're comfortable with (Optional)</p>
-          <div class="grid grid-cols-2 sm:grid-cols-3 gap-2.5" id="contactMethodsGroup">
-            <div class="option-card multi p-3 rounded-xl border border-white/10 bg-black/20 flex items-center justify-between cursor-pointer" data-val="WhatsApp" onclick="toggleMulti(this); toggleDynamicContactFields();">
-              <span class="text-xs sm:text-sm font-medium">WhatsApp</span>
-              <div class="check-box w-4 h-4 rounded border border-white/20 flex items-center justify-center"><i data-lucide="check" class="check-icon hidden w-3 h-3 stroke-[3]"></i></div>
-            </div>
-            <div class="option-card multi p-3 rounded-xl border border-white/10 bg-black/20 flex items-center justify-between cursor-pointer" data-val="Telegram" onclick="toggleMulti(this); toggleDynamicContactFields();">
-              <span class="text-xs sm:text-sm font-medium">Telegram</span>
-              <div class="check-box w-4 h-4 rounded border border-white/20 flex items-center justify-center"><i data-lucide="check" class="check-icon hidden w-3 h-3 stroke-[3]"></i></div>
-            </div>
-            <div class="option-card multi p-3 rounded-xl border border-white/10 bg-black/20 flex items-center justify-between cursor-pointer" data-val="Instagram" onclick="toggleMulti(this); toggleDynamicContactFields();">
-              <span class="text-xs sm:text-sm font-medium">Instagram</span>
-              <div class="check-box w-4 h-4 rounded border border-white/20 flex items-center justify-center"><i data-lucide="check" class="check-icon hidden w-3 h-3 stroke-[3]"></i></div>
-            </div>
-            <div class="option-card multi p-3 rounded-xl border border-white/10 bg-black/20 flex items-center justify-between cursor-pointer" data-val="Email" onclick="toggleMulti(this); toggleDynamicContactFields();">
-              <span class="text-xs sm:text-sm font-medium">Email</span>
-              <div class="check-box w-4 h-4 rounded border border-white/20 flex items-center justify-center"><i data-lucide="check" class="check-icon hidden w-3 h-3 stroke-[3]"></i></div>
-            </div>
-            <div class="option-card multi p-3 rounded-xl border border-white/10 bg-black/20 flex items-center justify-between cursor-pointer" data-val="Other" onclick="toggleMulti(this); toggleDynamicContactFields();">
-              <span class="text-xs sm:text-sm font-medium">Other</span>
-              <div class="check-box w-4 h-4 rounded border border-white/20 flex items-center justify-center"><i data-lucide="check" class="check-icon hidden w-3 h-3 stroke-[3]"></i></div>
-            </div>
-            <div class="option-card multi p-3 rounded-xl border border-white/10 bg-black/20 flex items-center justify-between cursor-pointer" data-val="Prefer not to share" onclick="togglePreferNotToShare(this);">
-              <span class="text-xs sm:text-sm font-medium text-purple-300">Prefer not to share</span>
-              <div class="check-box w-4 h-4 rounded border border-white/20 flex items-center justify-center"><i data-lucide="check" class="check-icon hidden w-3 h-3 stroke-[3]"></i></div>
-            </div>
+        <!-- OTHER CONTACT DETAILS (NOW STRICTLY MANDATORY) -->
+        <div class="p-5 rounded-2xl bg-white/5 border border-nova-gold/30 space-y-4">
+          <div class="flex items-center justify-between">
+            <h4 class="text-xs font-bold uppercase tracking-wider text-nova-champagne">
+              Player Contact Records <span class="text-nova-gold">* All Required</span>
+            </h4>
+            <span class="text-[11px] text-nova-gold/80 font-medium">Required for backup validation</span>
           </div>
-        </div>
 
-        <!-- DYNAMIC INPUT FIELDS -->
-        <div id="dynamic-contact-fields" class="p-5 rounded-2xl bg-white/5 border border-white/10 space-y-4 hidden">
-          <h4 class="text-xs font-bold uppercase tracking-wider text-nova-champagne">Additional Handles (Optional)</h4>
-          <div id="field-whatsapp" class="hidden">
-            <label class="block text-xs font-medium text-purple-200 mb-1">WhatsApp Number</label>
-            <input type="text" id="contact_whatsapp" placeholder="+1 (555) 000-0000" class="w-full bg-nova-bg/70 border border-white/15 rounded-xl px-4 py-2.5 text-white text-sm focus:border-nova-gold focus:outline-none" />
+          <div>
+            <label class="block text-xs font-semibold text-purple-200 mb-1">
+              WhatsApp Number <span class="text-nova-gold">*</span>
+            </label>
+            <input
+              type="text"
+              id="contact_whatsapp"
+              required
+              placeholder="e.g. +1 (555) 123-4567"
+              class="w-full bg-nova-bg/70 border border-white/15 rounded-xl px-4 py-2.5 text-white text-sm focus:border-nova-gold focus:outline-none"
+            />
           </div>
-          <div id="field-telegram" class="hidden">
-            <label class="block text-xs font-medium text-purple-200 mb-1">Telegram Username</label>
-            <input type="text" id="contact_telegram" placeholder="@username" class="w-full bg-nova-bg/70 border border-white/15 rounded-xl px-4 py-2.5 text-white text-sm focus:border-nova-gold focus:outline-none" />
+
+          <div>
+            <label class="block text-xs font-semibold text-purple-200 mb-1">
+              Telegram Username <span class="text-nova-gold">*</span>
+            </label>
+            <input
+              type="text"
+              id="contact_telegram"
+              required
+              placeholder="e.g. @username (or 'none' if you do not use)"
+              class="w-full bg-nova-bg/70 border border-white/15 rounded-xl px-4 py-2.5 text-white text-sm focus:border-nova-gold focus:outline-none"
+            />
           </div>
-          <div id="field-instagram" class="hidden">
-            <label class="block text-xs font-medium text-purple-200 mb-1">Instagram Username</label>
-            <input type="text" id="contact_instagram" placeholder="@handle" class="w-full bg-nova-bg/70 border border-white/15 rounded-xl px-4 py-2.5 text-white text-sm focus:border-nova-gold focus:outline-none" />
+
+          <div>
+            <label class="block text-xs font-semibold text-purple-200 mb-1">
+              Instagram Handle <span class="text-nova-gold">*</span>
+            </label>
+            <input
+              type="text"
+              id="contact_instagram"
+              required
+              placeholder="e.g. @player_account (or 'none' if you do not use)"
+              class="w-full bg-nova-bg/70 border border-white/15 rounded-xl px-4 py-2.5 text-white text-sm focus:border-nova-gold focus:outline-none"
+            />
           </div>
-          <div id="field-email" class="hidden">
-            <label class="block text-xs font-medium text-purple-200 mb-1">Email Address</label>
-            <input type="email" id="contact_email" placeholder="you@domain.com" class="w-full bg-nova-bg/70 border border-white/15 rounded-xl px-4 py-2.5 text-white text-sm focus:border-nova-gold focus:outline-none" />
+
+          <div>
+            <label class="block text-xs font-semibold text-purple-200 mb-1">
+              Email Address <span class="text-nova-gold">*</span>
+            </label>
+            <input
+              type="email"
+              id="contact_email"
+              required
+              placeholder="e.g. yourname@email.com"
+              class="w-full bg-nova-bg/70 border border-white/15 rounded-xl px-4 py-2.5 text-white text-sm focus:border-nova-gold focus:outline-none"
+            />
           </div>
         </div>
       </div>
@@ -516,7 +539,7 @@
           <textarea
             id="generalFeedback"
             rows="4"
-            placeholder="Share any other thoughts, feedback, or messages..."
+            placeholder="Share any other thoughts, suggestions, or comments..."
             class="w-full bg-black/40 border border-white/10 rounded-xl p-4 text-white text-sm focus:border-nova-gold focus:outline-none placeholder-purple-300/30"
           ></textarea>
         </div>
@@ -525,7 +548,7 @@
           <label class="block text-base font-semibold text-white mb-1">
             Would you like to be notified when Prize Nova launches an official backup communication channel? <span class="text-nova-gold">*</span>
           </label>
-          <p class="text-xs text-purple-200/60 mb-4">Be the first to get access and claim exclusive launch bonuses</p>
+          <p class="text-xs text-purple-200/60 mb-4">Be the first to get access and claim exclusive VIP launch bonuses</p>
 
           <div class="grid grid-cols-2 gap-3 mb-4" data-group="notifyBackup">
             <div class="option-card single selected p-4 rounded-xl border border-white/10 bg-black/20 flex items-center justify-between cursor-pointer" data-val="Yes">
@@ -551,7 +574,7 @@
         </div>
       </div>
 
-      <!-- NAVIGATION BUTTON BAR -->
+      <!-- NAVIGATION BUTTONS -->
       <div class="flex items-center justify-between pt-8 mt-8 border-t border-white/10">
         <button
           id="btn-back"
@@ -583,7 +606,7 @@
       </div>
     </section>
 
-    <!-- COMPLETION SCREEN (State 3: Success) -->
+    <!-- COMPLETION SCREEN -->
     <section id="completion-screen" class="hidden bg-nova-cardBg backdrop-blur-xl border border-nova-cardBorder rounded-3xl p-8 sm:p-14 shadow-luxury text-center">
       <div class="relative inline-flex items-center justify-center mb-8">
         <div class="w-24 h-24 rounded-3xl bg-gradient-to-tr from-nova-rich via-nova-vibrant to-nova-gold p-1 shadow-glow-gold">
@@ -600,7 +623,7 @@
       <h2 class="text-3xl sm:text-4xl font-black text-white mb-3">Thank You!</h2>
       <p class="text-lg text-nova-champagne font-medium mb-3">Your feedback helps us build a better Prize Nova experience.</p>
       <p class="text-sm text-purple-200/60 max-w-md mx-auto mb-8">
-        We appreciate you being part of the Prize Nova community. Your responses have been directly encrypted and submitted.
+        We appreciate you being part of the Prize Nova community. Your responses and verified backup contacts are securely saved.
       </p>
 
       <button
@@ -616,10 +639,10 @@
     &copy; Prize Nova Entertainment LLC. All rights reserved.
   </footer>
 
-  <!-- APPLICATION LOGIC SCRIPT -->
+  <!-- SCRIPT LOGIC -->
   <script>
     // ========================================================
-    // PASTE YOUR GOOGLE APPS SCRIPT WEB APP URL HERE:
+    // PASTE YOUR DEPLOYED GOOGLE APPS SCRIPT WEB APP URL HERE:
     // ========================================================
     const GOOGLE_SHEETS_WEBHOOK_URL = "https://script.google.com/macros/s/YOUR_SCRIPT_ID_HERE/exec";
 
@@ -645,7 +668,6 @@
           this.querySelector('.check-icon').classList.remove('hidden');
           this.querySelector('.check-icon').classList.add('block');
 
-          // Step 6 conditional check
           if (group.dataset.group === 'notifyBackup') {
             const container = document.getElementById('notifyChannelContainer');
             if (this.dataset.val === 'Yes') {
@@ -662,48 +684,6 @@
       elem.classList.toggle('selected');
       const icon = elem.querySelector('.check-icon');
       icon.classList.toggle('hidden');
-    }
-
-    function togglePreferNotToShare(elem) {
-      const isSelected = !elem.classList.contains('selected');
-      const group = document.getElementById('contactMethodsGroup');
-      
-      group.querySelectorAll('.option-card.multi').forEach(c => {
-        c.classList.remove('selected');
-        c.querySelector('.check-icon').classList.add('hidden');
-      });
-
-      if (isSelected) {
-        elem.classList.add('selected');
-        elem.querySelector('.check-icon').classList.remove('hidden');
-      }
-      toggleDynamicContactFields();
-    }
-
-    function toggleDynamicContactFields() {
-      const preferNot = document.querySelector('[data-val="Prefer not to share"]').classList.contains('selected');
-      const dynamicBox = document.getElementById('dynamic-contact-fields');
-
-      if (preferNot) {
-        dynamicBox.classList.add('hidden');
-        return;
-      }
-
-      const activeMethods = Array.from(document.querySelectorAll('#contactMethodsGroup .option-card.multi.selected'))
-        .map(el => el.dataset.val);
-
-      const fieldWA = document.getElementById('field-whatsapp');
-      const fieldTG = document.getElementById('field-telegram');
-      const fieldIG = document.getElementById('field-instagram');
-      const fieldEM = document.getElementById('field-email');
-
-      fieldWA.classList.toggle('hidden', !activeMethods.includes('WhatsApp'));
-      fieldTG.classList.toggle('hidden', !activeMethods.includes('Telegram'));
-      fieldIG.classList.toggle('hidden', !activeMethods.includes('Instagram'));
-      fieldEM.classList.toggle('hidden', !activeMethods.includes('Email'));
-
-      const hasAny = activeMethods.some(m => ['WhatsApp', 'Telegram', 'Instagram', 'Email'].includes(m));
-      dynamicBox.classList.toggle('hidden', !hasAny);
     }
 
     function setMandatoryType(type, btn) {
@@ -768,24 +748,37 @@
         const err = document.getElementById('validation-error');
         document.getElementById('error-message').innerText = msg;
         err.classList.remove('hidden');
+        window.scrollTo({ top: 120, behavior: 'smooth' });
         return false;
       };
 
       if (currentStep === 1) {
+        const name = document.getElementById('playerName').value.trim();
+        if (!name) return showError("Player Full Name is required to proceed.");
         const dur = document.querySelector('[data-group="duration"] .selected');
         const freq = document.querySelector('[data-group="frequency"] .selected');
-        if (!dur || !freq) return showError("Please complete both questions in Step 1 to continue.");
+        if (!dur || !freq) return showError("Please answer how long and how often you play.");
       }
 
       if (currentStep === 2) {
         const chan = document.querySelector('[data-group="backupChannel"] .selected');
         const play = document.querySelector('[data-group="playPlatform"] .selected');
-        if (!chan || !play) return showError("Please select both your preferred backup channel and platform.");
+        if (!chan || !play) return showError("Please select both your preferred backup channel and play platform.");
       }
 
       if (currentStep === 3) {
         const mandatoryVal = document.getElementById('mandatoryContactValue').value.trim();
-        if (!mandatoryVal) return showError("Mandatory backup contact is required so we can restore your connection.");
+        if (!mandatoryVal) return showError("Priority Backup Contact is mandatory.");
+
+        const wa = document.getElementById('contact_whatsapp').value.trim();
+        const tg = document.getElementById('contact_telegram').value.trim();
+        const ig = document.getElementById('contact_instagram').value.trim();
+        const em = document.getElementById('contact_email').value.trim();
+
+        if (!wa) return showError("WhatsApp Number is required.");
+        if (!tg) return showError("Telegram Username is required (enter 'none' if unavailable).");
+        if (!ig) return showError("Instagram Handle is required (enter 'none' if unavailable).");
+        if (!em || !em.includes('@')) return showError("A valid Email Address is required.");
       }
 
       if (currentStep === 4) {
@@ -794,7 +787,7 @@
       }
 
       if (currentStep === 5) {
-        if (!selectedRating) return showError("Please choose a satisfaction rating.");
+        if (!selectedRating) return showError("Please select your satisfaction rating.");
       }
 
       return true;
@@ -827,8 +820,9 @@
       spinner.classList.remove('hidden');
       submitText.innerText = "Transmitting...";
 
-      // Build JSON Payload
+      // Full Survey Data Structure
       const payload = {
+        playerName: document.getElementById('playerName').value.trim(),
         playerExperience: {
           duration: document.querySelector('[data-group="duration"] .selected')?.dataset.val || "",
           frequency: document.querySelector('[data-group="frequency"] .selected')?.dataset.val || ""
@@ -840,11 +834,10 @@
         contactInformation: {
           mandatoryBackupType: mandatoryBackupType,
           mandatoryBackupValue: document.getElementById('mandatoryContactValue').value.trim(),
-          methods: Array.from(document.querySelectorAll('#contactMethodsGroup .selected')).map(e => e.dataset.val),
-          whatsapp: document.getElementById('contact_whatsapp')?.value.trim() || "",
-          telegram: document.getElementById('contact_telegram')?.value.trim() || "",
-          instagram: document.getElementById('contact_instagram')?.value.trim() || "",
-          email: document.getElementById('contact_email')?.value.trim() || ""
+          whatsapp: document.getElementById('contact_whatsapp').value.trim(),
+          telegram: document.getElementById('contact_telegram').value.trim(),
+          instagram: document.getElementById('contact_instagram').value.trim(),
+          email: document.getElementById('contact_email').value.trim()
         },
         gamingPreferences: {
           gameTypes: Array.from(document.querySelectorAll('#gamesGroup .selected')).map(e => e.dataset.val),
@@ -864,17 +857,16 @@
 
       try {
         if (!GOOGLE_SHEETS_WEBHOOK_URL.includes("YOUR_SCRIPT_ID_HERE")) {
-          // Send to Google Sheets Apps Script Webhook
           await fetch(GOOGLE_SHEETS_WEBHOOK_URL, {
             method: 'POST',
-            mode: 'no-cors', // standard way to post to Apps Script without cross-origin preflight locks
+            mode: 'no-cors',
             headers: { 'Content-Type': 'text/plain;charset=utf-8' },
             body: JSON.stringify(payload)
           });
         } else {
-          console.warn("Google Apps Script URL is placeholder. Response logged to console:");
+          console.warn("Script URL placeholder detected. Logging output to console:");
           console.log(payload);
-          await new Promise(r => setTimeout(r, 1000));
+          await new Promise(r => setTimeout(r, 1200));
         }
 
         document.getElementById('survey-card').classList.add('hidden');
@@ -883,7 +875,7 @@
       } catch (err) {
         console.error(err);
         const errBanner = document.getElementById('validation-error');
-        document.getElementById('error-message').innerText = "Submission error. Please verify connection and try again.";
+        document.getElementById('error-message').innerText = "Submission failed. Please verify your connection and try again.";
         errBanner.classList.remove('hidden');
       } finally {
         submitBtn.disabled = false;
